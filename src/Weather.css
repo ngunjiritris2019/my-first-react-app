@@ -1,0 +1,25 @@
+.Weather {
+  border: 1px solid #302e2e;
+  padding: 16px;
+  max-width: 600px;
+  margin: 80px 100px 0px;
+  border-radius: 4px;
+}
+.Weather ul {
+  list-style-type: none;
+  margin: 0;
+  color: #5d636a;
+}
+.Weather .temperature {
+  font-size: 45px;
+}
+.Weather .unit {
+  font-size: 14px;
+  position: relative;
+  top: -20px;
+  color: #5d636a;
+}
+.Weather .forecast img {
+  height: 80px;
+  width: 100px;
+}
