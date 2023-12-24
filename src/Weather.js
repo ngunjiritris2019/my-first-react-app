@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { InfinitySpin } from "react-loader-spinner";
 import "./Weather.css";
 import ForecastInfo from "./ForecastInfo";
 
@@ -9,10 +9,12 @@ function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function displayForecast(response) {
+    console.log(response.data);
     setForecast({
       ready: true,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
+      feelslike: response.data.main.feels_like,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       city: response.data.name,
@@ -51,11 +53,7 @@ function Weather(props) {
               />
             </div>
             <div className="col-3">
-              <input
-                type="submit"
-                value="Search"
-                className="btn btn-secondary"
-              />
+              <input type="submit" value="Search" className="btn btn-info" />
             </div>
           </div>
         </form>
@@ -64,7 +62,14 @@ function Weather(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return (
+      <InfinitySpin
+        visible={true}
+        width="200"
+        color="#49D2F2"
+        ariaLabel="infinity-spin-loading"
+      />
+    );
   }
 }
 export default Weather;

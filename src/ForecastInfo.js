@@ -22,7 +22,7 @@ function ForecastInfo(props) {
         </div>
         <div className="col-6">
           <ul>
-            <li>Precipitation: </li>
+            <li>Feels-like: {Math.round(props.data.feelslike)}°C</li>
             <li>Humidity: {props.data.humidity}%</li>
             <li>Wind: {Math.round(props.data.wind)}km/h</li>
           </ul>
