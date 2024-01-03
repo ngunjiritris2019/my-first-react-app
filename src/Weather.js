@@ -13,6 +13,7 @@ function Weather(props) {
     console.log(response.data);
     setForecast({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       feelslike: response.data.main.feels_like,
@@ -59,7 +60,7 @@ function Weather(props) {
           </div>
         </form>
         <ForecastInfo data={forecast} />
-        <DailyForecast />
+        <DailyForecast coordinates={forecast.coordinates} />
       </div>
     );
   } else {
