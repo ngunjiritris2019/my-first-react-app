@@ -1,32 +1,46 @@
-import React from "react";
-import WeatherIcon from "./WeatherIcon";
+import React, { useState, useEffect } from "react";
+
 import "./DailyForecast.css";
 import axios from "axios";
+import WeeklyForecast from "./WeeklyForecast";
 
 function DailyForecast(props) {
-  function handleResponse(response) {
-    console.log(response.data);
-  }
-  let apiKey = "2513f3c728b1b5ff4f4347e1a6af22b8";
-  let longitude = props.coordinates.lon;
-  let latitude = props.coordinates.lat;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(handleResponse);
+  let [loaded, setLoaded] = useState(false);
+  let [dailyForecast, setDailyForecast] = useState(null);
 
-  return (
-    <div className="DailyForecast">
-      <div className="row">
-        <div className="col">
-          <div className="DailyForecast-day">Thur</div>
-          <WeatherIcon code="09d" size={34} />
-          <div className="DailyForecast-temperatures">
-            <span className="DailyForecast-max-temp">20°C</span> |{" "}
-            <span className="DailyForecast-min-temp">17°C</span>
-          </div>
+  useEffect(() => {
+    let apiKey = "2513f3c728b1b5ff4f4347e1a6af22b8";
+    let longitude = props.coordinates.lon;
+    let latitude = props.coordinates.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }, [props.coordinates]);
+
+  function handleResponse(response) {
+    setDailyForecast(response.data.daily);
+    setLoaded(true);
+  }
+
+  if (loaded) {
+    return (
+      <div className="DailyForecast">
+        <div className="row">
+          {dailyForecast.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <WeeklyForecast data={dailyForecast} />
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default DailyForecast;
