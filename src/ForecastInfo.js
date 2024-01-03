@@ -15,7 +15,7 @@ function ForecastInfo(props) {
       </ul>
       <div className="row">
         <div className="col-6 props.data">
-          <WeatherIcon code={props.data.icon} />
+          <WeatherIcon code={props.data.icon} size={60} />
           <span className="temperature">
             <UnitConversion celsius={props.data.temperature} />
           </span>

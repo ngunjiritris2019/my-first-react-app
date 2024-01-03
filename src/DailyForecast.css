@@ -1,0 +1,8 @@
+.DailyForecast {
+  text-align: center;
+  color: #5d636a;
+}
+
+.DailyForecast-min-temp {
+  opacity: 0.6;
+}

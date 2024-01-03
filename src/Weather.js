@@ -3,6 +3,7 @@ import axios from "axios";
 import { InfinitySpin } from "react-loader-spinner";
 import "./Weather.css";
 import ForecastInfo from "./ForecastInfo";
+import DailyForecast from "./DailyForecast";
 
 function Weather(props) {
   const [forecast, setForecast] = useState({ ready: false });
@@ -58,6 +59,7 @@ function Weather(props) {
           </div>
         </form>
         <ForecastInfo data={forecast} />
+        <DailyForecast />
       </div>
     );
   } else {
