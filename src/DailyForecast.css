@@ -1,6 +1,7 @@
 .DailyForecast {
   text-align: center;
-  color: #5d636a;
+  color: #0b5cff;
+  font-weight: bolder;
 }
 
 .DailyForecast-min-temp {

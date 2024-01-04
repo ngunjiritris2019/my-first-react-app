@@ -9,7 +9,8 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  color: #5d636a;
+  font-weight: 900;
+  color: #44ccf1;
 }
 .Weather .temperature {
   font-size: 45px;
@@ -19,4 +20,5 @@
   position: relative;
   top: -20px;
   color: #5d636a;
+  font-weight: 900;
 }
