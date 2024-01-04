@@ -10,7 +10,6 @@ function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function displayForecast(response) {
-    console.log(response.data);
     setForecast({
       ready: true,
       coordinates: response.data.coord,
@@ -49,13 +48,17 @@ function Weather(props) {
               <input
                 type="search"
                 placeholder="Enter a city"
-                className="form-control "
+                className="form-control mb-3"
                 autoFocus="on"
                 onChange={handleCitySearch}
               />
             </div>
             <div className="col-3">
-              <input type="submit" value="Search" className="btn btn-info" />
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-info ps-0 pe-0 w-100"
+              />
             </div>
           </div>
         </form>

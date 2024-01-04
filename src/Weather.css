@@ -2,12 +2,13 @@
   border: 1px solid #302e2e;
   padding: 16px;
   max-width: 600px;
-  margin: 80px 100px 0px;
+  margin: 0px;
   border-radius: 4px;
 }
 .Weather ul {
   list-style-type: none;
   margin: 0;
+  padding: 0;
   color: #5d636a;
 }
 .Weather .temperature {
