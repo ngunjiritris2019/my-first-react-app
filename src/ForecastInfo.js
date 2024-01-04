@@ -2,6 +2,7 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import UnitConversion from "./UnitConversion";
+import "./ForecastInfo.css";
 
 function ForecastInfo(props) {
   return (

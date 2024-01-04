@@ -16,7 +16,7 @@ function App() {
 
     // Set the background image based on day or night
     setBackgroundImage(
-      isDay ? "images/nairobi-day.jpeg" : "./images/nairobi-night.jpeg"
+      isDay ? "images/nairobi-day.jpeg" : "./images/night-sky.jpeg"
     );
   }, []);
 
